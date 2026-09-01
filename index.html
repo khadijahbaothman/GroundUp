@@ -728,7 +728,312 @@
       .section-head{display:block}.section-head p{margin-top:14px}
       .about-side{grid-template-columns:1fr}
     }
-  </style>
+  
+    /* =========================
+       Mobile / Tablet Responsive
+       ========================= */
+    .mobile-menu-btn{
+      display:none;
+      width:42px;height:42px;border:none;border-radius:12px;
+      background:#eef8ef;color:var(--sgs-dark);
+      align-items:center;justify-content:center;cursor:pointer;
+      font-size:1.05rem;
+    }
+
+    @media (max-width: 1024px){
+      .container{width:min(100% - 28px,1180px)}
+      .nav-inner{height:70px}
+      .brand-clean .sgs-logo{width:78px;height:30px}
+      .brand-clean .brand-name{font-size:1rem}
+      .brand-divider{height:22px}
+      .nav-links{gap:14px;font-size:.82rem}
+      .hero{padding-top:70px;min-height:auto}
+      .hero-grid{gap:34px}
+      .hero h1{font-size:clamp(3.8rem,8vw,5.6rem)}
+      .hero-visual{height:520px}
+      .about-new-grid{gap:34px}
+      .track{padding:24px}
+      .criterion{grid-template-columns:180px 1fr 52px}
+    }
+
+    @media (max-width: 820px){
+      nav{overflow:visible}
+      .nav-inner{position:relative}
+      .mobile-menu-btn{display:flex;order:3}
+      .brand-clean{order:1}
+      .nav-inner>.cta{order:2;margin-inline-start:auto;padding:10px 14px;font-size:.82rem}
+      .nav-links{
+        position:absolute;
+        top:70px;right:0;left:0;
+        display:none!important;
+        flex-direction:column;
+        gap:0;
+        padding:10px;
+        background:rgba(255,255,255,.98);
+        backdrop-filter:blur(18px);
+        border:1px solid var(--line);
+        border-radius:0 0 18px 18px;
+        box-shadow:0 20px 40px rgba(8,30,15,.10);
+      }
+      .nav-links.open{display:flex!important}
+      .nav-links a{
+        padding:13px 12px;
+        border-bottom:1px solid #edf2ee;
+        text-align:right;
+        width:100%;
+      }
+      .nav-links a:last-child{border-bottom:none}
+
+      .hero{
+        padding:112px 0 66px;
+        background:
+          radial-gradient(circle at 70% 8%,rgba(50,208,59,.14),transparent 30%),
+          linear-gradient(180deg,#fff 0%,#f5f8f5 100%);
+      }
+      .hero-grid{
+        grid-template-columns:1fr;
+        gap:34px;
+      }
+      .hero h1{
+        font-size:clamp(3.5rem,16vw,5rem);
+        text-align:center;
+        margin-top:14px;
+      }
+      .hero p{
+        font-size:1rem;
+        text-align:center;
+        margin-inline:auto;
+      }
+      .hero .eyebrow{display:flex;width:max-content;margin-inline:auto}
+      .hero-actions{justify-content:center}
+      .hero-visual{
+        height:auto;
+        min-height:500px;
+        width:100%;
+      }
+      .photo-frame.clean-photo-frame{
+        position:relative;
+        inset:auto!important;
+        width:min(100%,560px);
+        height:500px;
+        margin:0 auto;
+        overflow:visible!important;
+      }
+      .photo-frame img{border-radius:30px}
+      .hero-float-top{
+        left:-8px!important;
+        top:34px!important;
+        min-width:145px!important;
+        padding:14px 15px!important;
+      }
+      .hero-float-top strong{font-size:1.8rem}
+      .hero-float-bottom{
+        right:-8px!important;
+        bottom:54px!important;
+        min-width:210px!important;
+        padding:14px 15px!important;
+      }
+      .hero-tag{
+        right:16px!important;
+        bottom:14px!important;
+        max-width:calc(100% - 32px);
+        white-space:normal;
+        line-height:1.45;
+      }
+
+      section{padding:76px 0}
+      .section-head{
+        display:block;
+        margin-bottom:32px;
+      }
+      .section-head p{margin-top:14px}
+      .section-head h2{font-size:clamp(2rem,8vw,3rem)}
+      .about-new-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+      }
+      .about-new-copy h2{
+        font-size:clamp(2.4rem,10vw,3.8rem);
+      }
+      .ground-ops-board{min-height:470px}
+      .gob-scene{height:330px}
+      .track-grid{grid-template-columns:1fr}
+      .track{min-height:auto}
+      .runway-journey{
+        grid-template-columns:1fr;
+        gap:24px;
+        padding-top:0!important;
+      }
+      .runway-spine{display:none}
+      .runway-stop{
+        min-height:auto;
+        padding:26px;
+        padding-top:60px;
+      }
+      .runway-station-dot{
+        position:absolute!important;
+        top:16px!important;
+        right:22px!important;
+        transform:none!important;
+        margin:0!important;
+      }
+      .runway-stop:before{display:none!important}
+      .station-badge{
+        top:18px;
+        left:18px;
+      }
+      .criteria-panel{padding:22px}
+      .criterion{
+        grid-template-columns:1fr 46px;
+        gap:8px 12px;
+      }
+      .criterion .bar{
+        grid-column:1 / -1;
+        grid-row:2;
+      }
+      .faq-grid{grid-template-columns:1fr}
+      .faq-aside{min-height:390px}
+      .cta-box{
+        grid-template-columns:1fr;
+        padding:34px 26px;
+        text-align:center;
+      }
+      .cta-box .cta{margin:auto}
+    }
+
+    @media (max-width: 560px){
+      .container{width:min(100% - 20px,1180px)}
+      .nav-inner{height:64px;gap:8px}
+      .brand-clean{gap:8px}
+      .brand-clean .sgs-logo{width:67px;height:28px}
+      .brand-clean .brand-name{font-size:.92rem}
+      .brand-divider{height:19px}
+      .nav-inner>.cta{
+        padding:9px 11px;
+        font-size:.76rem;
+        border-radius:11px;
+      }
+      .mobile-menu-btn{
+        width:38px;height:38px;border-radius:10px;
+      }
+      .nav-links{top:64px}
+
+      .hero{padding-top:100px}
+      .hero h1{font-size:3.35rem}
+      .hero p{font-size:.92rem;line-height:1.8}
+      .hero-actions{
+        display:grid;
+        grid-template-columns:1fr;
+        width:100%;
+      }
+      .hero-actions .cta{width:100%}
+      .hero-visual{min-height:440px}
+      .photo-frame.clean-photo-frame{height:430px}
+      .hero-float-top{
+        left:-4px!important;
+        top:24px!important;
+        min-width:126px!important;
+        padding:12px 13px!important;
+      }
+      .hero-float-top strong{font-size:1.55rem}
+      .hero-float-top span{font-size:.82rem}
+      .hero-float-top small{font-size:.67rem}
+      .hero-float-bottom{
+        right:-4px!important;
+        bottom:50px!important;
+        min-width:185px!important;
+        padding:12px 13px!important;
+      }
+      .hero-float-bottom strong{font-size:.82rem}
+      .hero-float-bottom small{font-size:.68rem}
+      .hero-tag{
+        font-size:.68rem;
+        right:10px!important;
+        bottom:12px!important;
+      }
+
+      section{padding:62px 0}
+      .section-head h2,
+      .about-new-copy h2{line-height:1.14}
+      .about-new-copy>p{font-size:.92rem}
+      .about-point{
+        grid-template-columns:44px 1fr;
+        gap:11px;
+      }
+      .about-point-icon{width:42px;height:42px}
+      .about-point strong{font-size:.93rem}
+      .about-point span{font-size:.8rem}
+
+      .ground-ops-board{
+        padding:18px;
+        min-height:430px;
+        border-radius:24px;
+      }
+      .gob-head{
+        align-items:center;
+      }
+      .gob-head strong{font-size:.88rem}
+      .gob-kicker{font-size:.56rem}
+      .gob-live{font-size:.64rem}
+      .gob-scene{height:300px}
+      .aircraft-top{
+        width:94px;height:94px;
+      }
+      .aircraft-top i{font-size:3.25rem}
+      .service-node{
+        padding:7px 8px;
+        gap:6px;
+        border-radius:11px;
+      }
+      .service-node .node-icon{
+        width:29px;height:29px;
+        font-size:.78rem;
+      }
+      .service-node b{font-size:.68rem}
+      .service-node small{font-size:.5rem}
+      .node-bag{right:5px;top:45px}
+      .node-gse{right:3px;bottom:42px}
+      .node-pax{left:4px;top:50px}
+      .node-team{left:5px;bottom:40px}
+      .node-data{top:4px}
+      .node-safety{bottom:4px}
+      .gob-foot strong{font-size:1.15rem}
+      .gob-foot span{font-size:.67rem}
+
+      .track{padding:22px;border-radius:24px}
+      .track h3{font-size:1.35rem}
+      .challenge-copy strong{font-size:.82rem}
+      .challenge-copy small{font-size:.76rem}
+
+      .runway-stop{padding:58px 20px 22px}
+      .runway-stop h3{font-size:1.2rem}
+      .runway-stop li{font-size:.82rem}
+      .runway-note{font-size:.74rem}
+
+      .criteria-tabs{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:8px;
+      }
+      .tab{width:100%}
+      .criteria-panel{padding:18px}
+      .criterion-name{font-size:.86rem}
+      .criterion-pct{font-size:.8rem}
+
+      .faq-aside{min-height:320px}
+      .faq-q{font-size:.9rem;padding:18px 0}
+      .faq-a p{font-size:.82rem}
+
+      .cta-box{padding:28px 20px;border-radius:26px}
+      .cta-box h2{font-size:2rem}
+      footer{padding:28px 0}
+      .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+
+</style>
 </head>
 <body>
 <nav>
@@ -738,12 +1043,15 @@
       <span class="brand-divider"></span>
       <span class="brand-name">GroundUp</span>
     </a>
-    <div class="nav-links">
-      <a href="#about">عن الهاكثون</a>
-      <a href="#tracks">المسارات</a>
-      <a href="#journey">رحلة الهاكثون</a>
-      <a href="#criteria">المعايير</a>
-      <a href="#faq">الأسئلة الشائعة</a>
+    <button class="mobile-menu-btn" aria-label="فتح القائمة" onclick="toggleMobileMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" onclick="closeMobileMenu()">عن الهاكثون</a>
+      <a href="#tracks" onclick="closeMobileMenu()">المسارات</a>
+      <a href="#journey" onclick="closeMobileMenu()">رحلة الهاكثون</a>
+      <a href="#criteria" onclick="closeMobileMenu()">المعايير</a>
+      <a href="#faq" onclick="closeMobileMenu()">الأسئلة الشائعة</a>
     </div>
     <button class="cta" onclick="registerNow()">سجّل فكرتك ←</button>
   </div>
@@ -1095,6 +1403,19 @@
     // عند اعتماد رابط التسجيل، استبدل السطر أعلاه بـ:
     // window.open('YOUR_REGISTRATION_LINK','_blank');
   }
+
+  function toggleMobileMenu(){
+    const nav = document.getElementById('navLinks');
+    if(nav) nav.classList.toggle('open');
+  }
+  function closeMobileMenu(){
+    const nav = document.getElementById('navLinks');
+    if(nav) nav.classList.remove('open');
+  }
+  window.addEventListener('resize', function(){
+    if(window.innerWidth > 820) closeMobileMenu();
+  });
+
 </script>
 </body>
 </html>
