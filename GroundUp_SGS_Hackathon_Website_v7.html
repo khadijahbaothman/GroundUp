@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GroundUp | هاكثون SGS للابتكار</title>
+  <meta name="description" content="GroundUp — هاكثون الشركة السعودية للخدمات الأرضية للابتكار." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    :root{
+      --sgs:#32d03b;
+      --sgs-dark:#0d5f28;
+      --ink:#0b1a12;
+      --muted:#5f6f65;
+      --bg:#f5f8f5;
+      --card:#ffffff;
+      --line:#dce7df;
+      --soft:#eaf8ec;
+      --black:#08110b;
+      --shadow:0 20px 60px rgba(7,31,15,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:var(--bg);color:var(--ink);
+      font-family:"IBM Plex Sans Arabic","Inter",sans-serif;
+      line-height:1.75;overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    button{font:inherit}
+    .container{width:min(1180px,calc(100% - 40px));margin:auto}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 13px;border-radius:999px;background:var(--soft);
+      color:var(--sgs-dark);font-size:.84rem;font-weight:700;
+      border:1px solid rgba(50,208,59,.18)
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--sgs);box-shadow:0 0 0 5px rgba(50,208,59,.13)}
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      background:rgba(255,255,255,.82);backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(11,26,18,.08)
+    }
+    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .brand-mark{
+      width:42px;height:42px;border-radius:50%;position:relative;
+      background:conic-gradient(from 0deg,var(--sgs),#55e85c,var(--sgs));
+      box-shadow:inset 0 0 0 10px white,0 5px 18px rgba(50,208,59,.22)
+    }
+    .brand-name{line-height:1.05}
+    .brand-name small{display:block;font-size:.64rem;color:var(--muted);font-weight:600;letter-spacing:.04em}
+    .nav-links{display:flex;gap:22px;font-size:.9rem;font-weight:600;color:#435047}
+    .nav-links a:hover{color:var(--sgs-dark)}
+    .cta{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      background:var(--sgs);color:#06210c;border:none;border-radius:14px;
+      padding:12px 20px;font-weight:800;cursor:pointer;
+      box-shadow:0 10px 25px rgba(50,208,59,.25);transition:.25s;
+    }
+    .cta:hover{transform:translateY(-2px);box-shadow:0 15px 30px rgba(50,208,59,.30)}
+    .cta.dark{background:var(--ink);color:white;box-shadow:none}
+    .hero{
+      min-height:820px;padding-top:76px;position:relative;display:flex;align-items:center;
+      background:
+        radial-gradient(circle at 85% 20%,rgba(50,208,59,.18),transparent 28%),
+        linear-gradient(180deg,#fff 0%,#f5f8f5 100%);
+      overflow:hidden;
+    }
+    .hero-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:62px;align-items:center}
+    .hero h1{
+      font-size:clamp(3rem,7vw,6.5rem);line-height:.95;margin:18px 0 22px;
+      letter-spacing:-.06em;font-family:"Inter","IBM Plex Sans Arabic",sans-serif
+    }
+    .hero h1 .green{color:var(--sgs)}
+    .hero p{font-size:1.13rem;color:var(--muted);max-width:650px;margin:0 0 30px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .meta-row{display:flex;gap:24px;flex-wrap:wrap;margin-top:34px}
+    .meta{display:flex;align-items:center;gap:10px;color:#33443a;font-size:.9rem}
+    .mini-icon{width:32px;height:32px;border-radius:9px;background:var(--soft);display:grid;place-items:center}
+    .hero-visual{position:relative;height:610px}
+    .hero-photo{
+      position:absolute;inset:40px 20px 10px 55px;border-radius:34px;overflow:hidden;
+      box-shadow:var(--shadow);transform:rotate(-2deg);
+      background:#dce7df;
+    }
+    .hero-photo img{width:100%;height:100%;object-fit:cover}
+    .hero-photo:after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg,transparent 35%,rgba(4,26,12,.56) 100%)
+    }
+    .floating{
+      position:absolute;background:white;border:1px solid rgba(11,26,18,.08);
+      border-radius:22px;box-shadow:var(--shadow);z-index:4
+    }
+    .float-a{left:-5px;top:70px;padding:18px 20px;width:180px}
+    .float-b{right:-10px;bottom:30px;padding:16px 18px;width:210px}
+    .float-c{
+      left:40px;bottom:80px;padding:14px 18px;border-radius:999px;
+      background:var(--ink);color:white
+    }
+    .big-number{font:800 2.3rem/1 "Inter";color:var(--sgs)}
+    .floating small{color:var(--muted)}
+    .float-c small{color:#c9d8ce}
+    .plane-line{
+      position:absolute;width:420px;height:420px;right:-200px;top:45px;border:1px dashed rgba(50,208,59,.4);
+      border-radius:50%;animation:spin 22s linear infinite
+    }
+    .plane-line:after{content:"✈";position:absolute;top:-18px;left:47%;font-size:28px;color:var(--sgs)}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    section{padding:105px 0}
+    .section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:42px}
+    .section-head h2{font-size:clamp(2rem,4vw,3.25rem);line-height:1.15;margin:10px 0 0;letter-spacing:-.03em}
+    .section-head p{max-width:520px;color:var(--muted);margin:0}
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+    .about-main,.about-stat{
+      background:white;border:1px solid var(--line);border-radius:28px;padding:34px
+    }
+    .about-main h3{font-size:1.7rem;margin:0 0 12px}
+    .about-main p{color:var(--muted);margin:0}
+    .values{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+    .pill{padding:8px 13px;border-radius:999px;background:#f3f7f4;border:1px solid var(--line);font-size:.82rem;font-weight:600}
+    .about-side{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .about-stat{min-height:160px;display:flex;flex-direction:column;justify-content:space-between}
+    .about-stat strong{font:800 2.2rem "Inter";color:var(--sgs-dark)}
+    .about-stat span{color:var(--muted);font-size:.9rem}
+    .tracks{background:var(--ink);color:white;position:relative;overflow:hidden}
+    .tracks:before{
+      content:"";position:absolute;width:550px;height:550px;border-radius:50%;
+      background:radial-gradient(circle,rgba(50,208,59,.16),transparent 65%);
+      left:-180px;top:-160px
+    }
+    .tracks .section-head p{color:#b7c6bc}
+    .track-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative}
+    .track{
+      min-height:570px;border-radius:30px;padding:28px;background:#102219;
+      border:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;
+      transition:.3s;position:relative;overflow:hidden
+    }
+    .track:hover{transform:translateY(-7px);border-color:rgba(50,208,59,.6)}
+    .track-num{font:700 .8rem "Inter";letter-spacing:.12em;color:var(--sgs)}
+    .track-icon{
+      width:64px;height:64px;border-radius:18px;background:rgba(50,208,59,.12);
+      display:grid;place-items:center;font-size:29px;margin:22px 0
+    }
+    .track h3{font-size:1.6rem;margin:0 0 8px}
+    .track .lead{color:#9fb1a5;font-size:.94rem;margin-bottom:18px}
+    .challenge{
+      padding:15px 0;border-top:1px solid rgba(255,255,255,.09);
+      display:flex;gap:12px;align-items:flex-start
+    }
+    .challenge b{
+      width:25px;height:25px;border-radius:50%;background:var(--sgs);color:#06210c;
+      display:grid;place-items:center;flex:0 0 auto;font:800 .72rem "Inter"
+    }
+    .challenge span{font-size:.93rem;color:#edf4ef}
+    .timeline-wrap{position:relative}
+    .timeline-line{
+      position:absolute;top:60px;right:8%;left:8%;height:2px;background:linear-gradient(90deg,var(--line),var(--sgs),var(--line))
+    }
+    .timeline-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;position:relative}
+    .stage{
+      background:white;border-radius:28px;border:1px solid var(--line);padding:28px;min-height:500px;
+      position:relative
+    }
+    .stage-dot{
+      width:30px;height:30px;background:var(--sgs);border:7px solid white;border-radius:50%;
+      box-shadow:0 0 0 1px var(--line);margin:-44px auto 27px
+    }
+    .stage-tag{font:700 .8rem "Inter";color:var(--sgs-dark);letter-spacing:.08em}
+    .stage h3{font-size:1.45rem;margin:8px 0}
+    .stage .stage-sub{color:var(--muted);margin-bottom:20px}
+    .stage ul{padding:0;margin:0;list-style:none}
+    .stage li{display:flex;gap:9px;padding:8px 0;color:#425248;font-size:.9rem}
+    .stage li:before{content:"✓";color:var(--sgs-dark);font-weight:900}
+    .stage .gate{
+      margin-top:18px;padding:12px;border-radius:14px;background:var(--soft);
+      color:var(--sgs-dark);font-size:.86rem;font-weight:700
+    }
+    .criteria{background:#eef4ef}
+    .criteria-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+    .tab{
+      border:1px solid var(--line);background:white;padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:700;color:#4c5b51
+    }
+    .tab.active{background:var(--ink);color:white;border-color:var(--ink)}
+    .criteria-panel{display:none;background:white;border:1px solid var(--line);border-radius:28px;padding:30px}
+    .criteria-panel.active{display:block}
+    .criterion{display:grid;grid-template-columns:220px 1fr 58px;gap:18px;align-items:center;padding:13px 0}
+    .criterion-name{font-weight:700}
+    .bar{height:12px;background:#edf2ee;border-radius:999px;overflow:hidden}
+    .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--sgs-dark),var(--sgs));border-radius:999px}
+    .criterion-pct{font:800 .9rem "Inter";color:var(--sgs-dark)}
+    .requirements-note{margin-top:20px;color:var(--muted);font-size:.9rem}
+    .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px}
+    .faq-aside{
+      border-radius:28px;overflow:hidden;min-height:520px;position:relative;background:#ccd8cf
+    }
+    .faq-aside img{width:100%;height:100%;object-fit:cover}
+    .faq-aside:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(7,27,13,.6))}
+    .faq-caption{position:absolute;bottom:24px;right:24px;left:24px;color:white;z-index:2}
+    .faq-caption h3{margin:0;font-size:1.5rem}
+    .accordion{border-top:1px solid var(--line)}
+    .faq-item{border-bottom:1px solid var(--line)}
+    .faq-q{
+      width:100%;display:flex;justify-content:space-between;gap:20px;align-items:center;
+      padding:22px 0;border:none;background:none;text-align:right;cursor:pointer;font-weight:700;color:var(--ink)
+    }
+    .faq-q span:last-child{font-size:1.4rem;color:var(--sgs-dark);transition:.2s}
+    .faq-a{max-height:0;overflow:hidden;color:var(--muted);transition:max-height .35s ease}
+    .faq-a p{margin:0 0 22px}
+    .faq-item.open .faq-a{max-height:180px}
+    .faq-item.open .faq-q span:last-child{transform:rotate(45deg)}
+    .final-cta{
+      padding:0 0 90px
+    }
+    .cta-box{
+      border-radius:36px;background:
+      radial-gradient(circle at 20% 10%,rgba(255,255,255,.22),transparent 25%),
+      var(--sgs);padding:58px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;
+      color:#07210d;overflow:hidden;position:relative
+    }
+    .cta-box h2{font-size:clamp(2rem,4vw,3.3rem);line-height:1.12;margin:0 0 10px}
+    .cta-box p{margin:0;max-width:650px}
+    footer{background:#07130b;color:#d9e3dc;padding:36px 0}
+    .footer-inner{display:flex;justify-content:space-between;gap:25px;align-items:center;flex-wrap:wrap}
+    .footer-note{font-size:.8rem;color:#87998d}
+    .source-note{font-size:.72rem;color:#6f8175;margin-top:6px}
+
+    .sgs-logo{
+      width:112px;height:42px;object-fit:contain;object-position:center;
+      background:transparent;display:block
+    }
+    .brand-name{font:800 1.18rem/1 "Inter","IBM Plex Sans Arabic",sans-serif;color:var(--ink)}
+    .footer-logo{filter:brightness(0) invert(1);opacity:.95}
+    .clean-visual{height:560px}
+    .runway-card{
+      position:absolute;inset:35px 10px 25px 35px;border-radius:34px;
+      background:linear-gradient(145deg,#ffffff,#edf8ef);
+      border:1px solid #d8e6db;box-shadow:0 28px 80px rgba(7,31,15,.12);
+      overflow:hidden;padding:26px;transform:rotate(-1deg)
+    }
+    .runway-card:before{
+      content:"";position:absolute;inset:auto -90px -130px auto;width:300px;height:300px;
+      border:1px solid rgba(50,208,59,.25);border-radius:50%;
+      box-shadow:0 0 0 38px rgba(50,208,59,.04),0 0 0 80px rgba(50,208,59,.025)
+    }
+    .runway-top,.runway-bottom{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between}
+    .runway-label{font:800 .72rem "Inter";letter-spacing:.14em;color:#6b7a70}
+    .status-chip{
+      display:flex;align-items:center;gap:8px;padding:8px 11px;border-radius:999px;
+      background:white;border:1px solid #dce7df;font:700 .65rem "Inter";letter-spacing:.08em
+    }
+    .status-chip i{width:7px;height:7px;border-radius:50%;background:var(--sgs);box-shadow:0 0 0 4px rgba(50,208,59,.12)}
+    .runway-center{height:385px;display:grid;place-items:center}
+    .runway-center svg{width:100%;height:100%}
+    .runway-bottom{gap:13px;justify-content:center}
+    .runway-bottom div{display:grid;text-align:center;gap:2px}
+    .runway-bottom b{font:800 1rem "Inter";color:var(--sgs-dark)}
+    .runway-bottom span{font-size:.78rem;color:#697970}
+    .flow-line{width:70px;height:1px;background:#c9d8cd}
+    .micro-card{
+      position:absolute;z-index:4;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+      border:1px solid #d9e7dc;border-radius:18px;padding:14px 17px;box-shadow:0 14px 40px rgba(9,31,16,.10);
+      min-width:110px
+    }
+    .micro-card strong{font:800 1.6rem "Inter";color:var(--sgs-dark);display:block}
+    .micro-card span{font-size:.8rem;color:#6a796f}
+    .micro-a{left:0;top:90px}.micro-b{right:-5px;bottom:75px}
+    .why-section{background:#f7faf7}
+    .why-intro{max-width:830px;margin:0 auto 54px;text-align:center}
+    .why-intro h2{font-size:clamp(2.4rem,5vw,4.5rem);line-height:1.08;margin:15px 0 20px;letter-spacing:-.045em}
+    .why-intro h2 span{color:var(--sgs-dark)}
+    .why-intro p{color:var(--muted);font-size:1.04rem;margin:0 auto;max-width:720px}
+    .why-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .why-step{
+      background:white;border:1px solid var(--line);border-radius:28px;padding:28px;min-height:290px;
+      position:relative;transition:.25s
+    }
+    .why-step:hover{transform:translateY(-5px);box-shadow:0 18px 50px rgba(8,33,16,.08)}
+    .why-no{font:700 .72rem "Inter";letter-spacing:.1em;color:#809087}
+    .why-symbol{
+      width:58px;height:58px;border-radius:17px;background:var(--soft);color:var(--sgs-dark);
+      display:grid;place-items:center;margin:30px 0 22px
+    }
+    .why-symbol svg{width:34px;height:34px}
+    .why-step h3{font-size:1.28rem;margin:0 0 9px}
+    .why-step p{color:var(--muted);font-size:.92rem;margin:0}
+    .why-stats{
+      margin-top:18px;background:var(--ink);border-radius:26px;padding:22px 28px;
+      display:grid;grid-template-columns:repeat(4,1fr);gap:12px;color:white
+    }
+    .why-stats div{padding:6px 20px;border-left:1px solid rgba(255,255,255,.1)}
+    .why-stats div:last-child{border-left:none}
+    .why-stats strong{display:block;font:800 1.65rem "Inter";color:var(--sgs)}
+    .why-stats span{font-size:.82rem;color:#b9c8be}
+    .track-icon.line-icon{color:var(--sgs);background:rgba(50,208,59,.08)}
+    .track-icon.line-icon svg{width:34px;height:34px}
+
+
+    .sgs-logo {
+      width:128px;height:46px;object-fit:contain;object-position:center;
+      display:block;background:white;border-radius:10px;padding:3px 6px;
+    }
+    .photo-visual{height:575px;position:relative}
+    .photo-frame{
+      position:absolute;inset:28px 8px 18px 42px;border-radius:34px;overflow:hidden;
+      box-shadow:0 28px 80px rgba(7,31,15,.14);border:1px solid rgba(11,26,18,.08);
+      background:#dce7df;
+    }
+    .photo-frame img{
+      width:100%;height:100%;object-fit:cover;display:block;
+    }
+    .photo-overlay{
+      position:absolute;inset:0;
+      background:
+        linear-gradient(180deg,rgba(4,18,9,.02) 35%,rgba(4,24,11,.58) 100%),
+        linear-gradient(90deg,rgba(50,208,59,.05),transparent 45%);
+    }
+    .photo-badge{
+      position:absolute;right:28px;bottom:28px;z-index:2;color:white;
+      display:flex;flex-direction:column;gap:3px
+    }
+    .photo-badge span{font:700 .68rem "Inter";letter-spacing:.16em;color:#bdf6c1}
+    .photo-badge strong{font-size:1.35rem;line-height:1.2}
+    .faq-graphic{
+      background:
+        radial-gradient(circle at 25% 18%,rgba(50,208,59,.26),transparent 28%),
+        linear-gradient(145deg,#0b1a12,#102b19);
+      position:relative;overflow:hidden;
+    }
+    .faq-gridline{
+      position:absolute;inset:0;opacity:.16;
+      background-image:
+        linear-gradient(rgba(255,255,255,.18) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.18) 1px,transparent 1px);
+      background-size:42px 42px;
+    }
+    .faq-mark{
+      position:absolute;left:36px;top:26px;
+      font:900 13rem/1 "Inter";color:rgba(50,208,59,.12);letter-spacing:-.08em;
+    }
+    .faq-graphic .faq-caption{z-index:2}
+    .footer-logo{filter:none;opacity:1}
+
+
+    .why-symbol,
+    .track-icon.line-icon{
+      display:grid;
+      place-items:center;
+    }
+    .why-symbol i{
+      font-size:1.55rem;
+      color:var(--sgs-dark);
+    }
+    .track-icon.line-icon i{
+      font-size:1.65rem;
+      color:var(--sgs);
+    }
+    .why-symbol svg,
+    .track-icon.line-icon svg{display:none!important}
+
+
+    /* Brand */
+    .brand-clean{display:flex;align-items:center;gap:14px}
+    .brand-clean .sgs-logo{
+      width:92px;height:34px;padding:0;background:transparent;border-radius:0;object-fit:contain
+    }
+    .brand-divider{width:1px;height:25px;background:#dbe5dd}
+    .brand-clean .brand-name{
+      font:800 1.12rem/1 "Inter","IBM Plex Sans Arabic",sans-serif;
+      letter-spacing:-.02em;color:#0b1a12
+    }
+
+    /* Hero photo */
+    .clean-photo-frame{inset:34px 24px 18px 34px;transform:none}
+    .clean-overlay{background:linear-gradient(180deg,rgba(2,15,7,.02) 45%,rgba(2,18,8,.62) 100%)}
+    .photo-caption{position:absolute;right:24px;bottom:24px;z-index:3;color:white}
+    .photo-caption span{display:block;font:700 .68rem "Inter";letter-spacing:.14em;color:#bdf6c1;margin-bottom:4px}
+    .photo-caption strong{font-size:1.05rem}
+
+    /* New about section */
+    .about-new{background:#f7faf7}
+    .about-new-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:58px;align-items:center}
+    .about-new-copy h2{font-size:clamp(2.5rem,5vw,4.6rem);line-height:1.06;margin:16px 0 20px;letter-spacing:-.045em}
+    .about-new-copy h2 span{color:var(--sgs-dark)}
+    .about-new-copy>p{color:var(--muted);font-size:1.04rem;max-width:650px}
+    .about-points{display:grid;gap:14px;margin-top:32px}
+    .about-point{
+      display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:center;
+      padding:14px 0;border-bottom:1px solid #e2ebe4
+    }
+    .about-point:last-child{border-bottom:none}
+    .about-point-icon{
+      width:48px;height:48px;border-radius:14px;background:var(--soft);
+      display:grid;place-items:center;color:var(--sgs-dark);font-size:1.05rem
+    }
+    .about-point strong{display:block;font-size:1rem;margin-bottom:2px}
+    .about-point span{color:var(--muted);font-size:.88rem}
+    .ops-map-card{
+      background:#0b1a12;color:white;border-radius:30px;padding:24px;
+      box-shadow:0 26px 70px rgba(5,25,11,.18);min-height:470px;position:relative;overflow:hidden
+    }
+    .ops-map-card:before{
+      content:"";position:absolute;width:320px;height:320px;border-radius:50%;
+      border:1px solid rgba(50,208,59,.14);left:-110px;top:-130px;
+      box-shadow:0 0 0 45px rgba(50,208,59,.025),0 0 0 90px rgba(50,208,59,.018)
+    }
+    .ops-card-top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+    .ops-card-top>span:first-child{font:700 .67rem "Inter";letter-spacing:.12em;color:#8da095}
+    .ops-live{display:flex;align-items:center;gap:7px;font-size:.72rem;color:#dce8df}
+    .ops-live i{width:7px;height:7px;border-radius:50%;background:var(--sgs)}
+    .ops-map{position:relative;height:320px;margin-top:14px}
+    .ops-route{
+      position:absolute;inset:60px 35px 45px 35px;
+      border:2px dashed rgba(50,208,59,.35);border-radius:50%;
+      transform:rotate(-11deg)
+    }
+    .ops-stop{position:absolute;display:grid;place-items:center;text-align:center;z-index:3}
+    .ops-stop b{
+      width:45px;height:45px;border-radius:50%;background:#eef9ef;color:var(--sgs-dark);
+      display:grid;place-items:center;font:800 .78rem "Inter";border:5px solid rgba(255,255,255,.08)
+    }
+    .ops-stop span{font-size:.74rem;color:#aebeb4;margin-top:5px}
+    .ops-stop.s1{right:30px;bottom:44px}.ops-stop.s2{right:135px;top:34px}
+    .ops-stop.s3{left:120px;top:98px}.ops-stop.s4{left:26px;bottom:40px}
+    .ops-plane{position:absolute;right:47%;top:47%;font-size:2rem;color:var(--sgs);transform:rotate(-28deg);z-index:4}
+    .ops-card-bottom{
+      border-top:1px solid rgba(255,255,255,.1);padding-top:18px;
+      display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative;z-index:2
+    }
+    .ops-card-bottom div{text-align:center;border-left:1px solid rgba(255,255,255,.08)}
+    .ops-card-bottom div:last-child{border-left:none}
+    .ops-card-bottom strong{display:block;font:800 1.35rem "Inter";color:var(--sgs)}
+    .ops-card-bottom span{font-size:.76rem;color:#aebeb4}
+
+    /* Challenge titles */
+    .challenge-copy{display:flex!important;flex-direction:column;gap:3px}
+    .challenge-copy strong{font:700 .9rem "Inter";color:white;direction:ltr;text-align:right}
+    .challenge-copy small{font-size:.82rem;color:#bdcbc1;line-height:1.55}
+
+    /* Journey as runway */
+    .journey-runway{background:#fff}
+    .runway-journey{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding-top:95px}
+    .runway-spine{
+      position:absolute;top:27px;right:6%;left:6%;height:46px;background:#122017;border-radius:12px;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)
+    }
+    .runway-spine:before,.runway-spine:after{
+      content:"";position:absolute;top:8px;bottom:8px;width:5px;background:#fff;border-radius:2px;opacity:.9
+    }
+    .runway-spine:before{right:20px}.runway-spine:after{left:20px}
+    .runway-dash{
+      position:absolute;top:21px;width:100px;height:3px;background:
+      repeating-linear-gradient(90deg,#fff 0 22px,transparent 22px 38px);opacity:.7
+    }
+    .runway-dash.d1{right:19%}.runway-dash.d2{right:45%}.runway-dash.d3{left:17%}
+    .runway-plane{position:absolute;left:48%;top:8px;color:var(--sgs);font-size:1.8rem;transform:rotate(180deg)}
+    .runway-stop{
+      border:1px solid var(--line);border-radius:26px;background:#fbfdfb;padding:26px;min-height:500px;position:relative
+    }
+    .runway-code{font:800 .68rem "Inter";letter-spacing:.11em;color:#809087;margin-bottom:16px;direction:ltr;text-align:right}
+    .runway-icon{
+      width:54px;height:54px;border-radius:15px;background:var(--soft);display:grid;place-items:center;
+      color:var(--sgs-dark);font-size:1.25rem;margin-bottom:20px
+    }
+    .runway-stop h3{font-size:1.35rem;margin:0 0 7px}
+    .runway-stop>p{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+    .runway-stop ul{list-style:none;padding:0;margin:0}
+    .runway-stop li{padding:7px 0;color:#46564b;font-size:.88rem;display:flex;gap:8px}
+    .runway-stop li:before{content:"•";color:var(--sgs);font-size:1.2rem;line-height:1}
+    .runway-note{
+      margin-top:18px;padding:11px 12px;border-radius:12px;background:#eef8ef;color:var(--sgs-dark);
+      font-size:.8rem;font-weight:700
+    }
+
+    /* FAQ image */
+    .faq-photo{position:relative;overflow:hidden;background:#d9e4dc}
+    .faq-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .faq-photo-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(5,24,11,.66) 100%)}
+    .faq-photo .faq-caption{z-index:3}
+
+
+    /* Hero overlays — cleaner, balanced and attractive */
+    .hero-float{
+      position:absolute;z-index:4;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,.7);box-shadow:0 18px 45px rgba(5,25,11,.14);
+      border-radius:20px;padding:16px 18px;color:var(--ink)
+    }
+    .hero-float-top{left:-18px;top:78px;min-width:155px}
+    .hero-float-top strong{display:block;font:800 2.15rem "Inter";color:var(--sgs-dark);line-height:1}
+    .hero-float-top span{display:block;font-weight:800;margin-top:5px}
+    .hero-float-top small,.hero-float-bottom small{display:block;color:#687970;margin-top:3px;font-size:.76rem}
+    .hero-float-bottom{right:-18px;bottom:44px;min-width:235px}
+    .hero-float-bottom strong{display:block;font-size:.98rem}
+    .hero-tag{
+      position:absolute;right:24px;bottom:22px;z-index:4;display:flex;align-items:center;gap:9px;
+      background:rgba(7,24,12,.86);color:white;border:1px solid rgba(255,255,255,.12);
+      padding:10px 13px;border-radius:999px;font-size:.78rem;font-weight:700;backdrop-filter:blur(8px)
+    }
+    .hero-tag i{color:var(--sgs);font-size:.82rem}
+
+    /* Animated innovation radar */
+    .innovation-radar{
+      background:#0b1a12;border-radius:32px;min-height:485px;padding:24px;color:white;
+      box-shadow:0 28px 80px rgba(5,25,11,.18);position:relative;overflow:hidden
+    }
+    .radar-head,.radar-foot{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between}
+    .radar-head>span:first-child{font-weight:800;font-size:.82rem}
+    .radar-status{display:flex;align-items:center;gap:7px;color:#adbbb2;font-size:.73rem}
+    .radar-status i{width:7px;height:7px;border-radius:50%;background:var(--sgs);box-shadow:0 0 0 5px rgba(50,208,59,.08)}
+    .radar-scene{height:345px;position:relative;margin:8px 0 0;overflow:hidden}
+    .radar-ring{
+      position:absolute;border:1px solid rgba(50,208,59,.12);border-radius:50%;
+      left:50%;top:50%;transform:translate(-50%,-50%)
+    }
+    .radar-ring.r1{width:135px;height:135px}.radar-ring.r2{width:245px;height:245px}.radar-ring.r3{width:355px;height:355px}
+    .radar-sweep{
+      position:absolute;width:230px;height:230px;left:50%;top:50%;transform-origin:0 0;
+      background:conic-gradient(from 0deg,rgba(50,208,59,.20),rgba(50,208,59,0) 32%);
+      animation:radarSpin 7s linear infinite;pointer-events:none
+    }
+    @keyframes radarSpin{to{transform:rotate(360deg)}}
+    .radar-node{
+      position:absolute;z-index:4;display:grid;place-items:center;text-align:center;
+      animation:nodeFloat 3.2s ease-in-out infinite
+    }
+    .radar-node b{
+      width:47px;height:47px;border-radius:50%;background:#eef9ef;color:var(--sgs-dark);
+      display:grid;place-items:center;font:800 .78rem "Inter";box-shadow:0 8px 18px rgba(0,0,0,.18)
+    }
+    .radar-node span{font-size:.74rem;color:#aebeb4;margin-top:5px}
+    .radar-node.n1{right:34px;bottom:40px}.radar-node.n2{right:118px;top:40px;animation-delay:.4s}
+    .radar-node.n3{left:108px;top:98px;animation-delay:.8s}.radar-node.n4{left:28px;bottom:48px;animation-delay:1.2s}
+    @keyframes nodeFloat{50%{transform:translateY(-5px)}}
+    .radar-plane{
+      position:absolute;left:46%;top:46%;font-size:2.2rem;color:var(--sgs);z-index:4;
+      animation:planePulse 2.6s ease-in-out infinite
+    }
+    @keyframes planePulse{50%{transform:translateY(-4px) rotate(-5deg);filter:drop-shadow(0 0 10px rgba(50,208,59,.35))}}
+    .radar-foot{
+      border-top:1px solid rgba(255,255,255,.09);padding-top:16px;display:grid;grid-template-columns:repeat(3,1fr)
+    }
+    .radar-foot div{text-align:center;border-left:1px solid rgba(255,255,255,.08)}
+    .radar-foot div:last-child{border-left:none}
+    .radar-foot strong{display:block;color:var(--sgs);font:800 1.35rem "Inter"}
+    .radar-foot span{font-size:.76rem;color:#aebeb4}
+
+    /* Journey sequence indicator */
+    .journey-sequence{
+      display:grid;grid-template-columns:1fr 90px 1fr 90px 1fr;align-items:center;
+      margin:0 0 18px;padding:0 4px
+    }
+    .sequence-step{
+      display:flex;align-items:center;justify-content:center;gap:9px;
+      background:#f4f8f4;border:1px solid var(--line);border-radius:15px;padding:10px 14px
+    }
+    .sequence-number{
+      color:var(--sgs-dark);font-weight:800;font-size:.78rem;white-space:nowrap
+    }
+    .sequence-name{font-weight:700;font-size:.82rem;color:#425047}
+    .sequence-arrow{text-align:center;color:var(--sgs-dark);font-size:1.15rem}
+    .station-badge{
+      position:absolute;top:18px;left:18px;padding:6px 10px;border-radius:999px;
+      background:#eef8ef;color:var(--sgs-dark);font-weight:800;font-size:.68rem
+    }
+    .runway-stop{padding-top:48px}
+
+
+    /* V7 — hero floating cards intentionally break outside the image */
+    .photo-visual{overflow:visible!important}
+    .clean-photo-frame{overflow:visible!important}
+    .clean-photo-frame>img,
+    .clean-photo-frame>.clean-overlay{
+      border-radius:34px;
+    }
+    .hero-float{
+      background:rgba(255,255,255,.97);
+      border:1px solid #dce7df;
+      box-shadow:0 22px 60px rgba(7,31,15,.16);
+    }
+    .hero-float-top{
+      left:-74px!important;
+      top:72px!important;
+      min-width:178px!important;
+      padding:18px 20px!important;
+    }
+    .hero-float-bottom{
+      right:-70px!important;
+      bottom:54px!important;
+      min-width:255px!important;
+      padding:17px 20px!important;
+    }
+    .hero-tag{
+      right:26px!important;
+      bottom:18px!important;
+      transform:translateY(50%);
+      box-shadow:0 14px 32px rgba(4,22,9,.18);
+    }
+
+
+    /* Ground operations board — tied directly to SGS ground handling */
+    .ground-ops-board{
+      min-height:500px;
+      border-radius:32px;
+      background:
+        radial-gradient(circle at 12% 10%,rgba(50,208,59,.12),transparent 30%),
+        #0b1a12;
+      color:white;
+      padding:24px;
+      position:relative;
+      overflow:hidden;
+      box-shadow:0 28px 80px rgba(5,25,11,.18);
+    }
+    .gob-head,.gob-foot{position:relative;z-index:5}
+    .gob-head{
+      display:flex;justify-content:space-between;align-items:flex-start;gap:20px
+    }
+    .gob-kicker{
+      display:block;font:700 .66rem "Inter";letter-spacing:.14em;color:#7f9286;margin-bottom:5px
+    }
+    .gob-head strong{font-size:1rem}
+    .gob-live{
+      display:flex;align-items:center;gap:7px;color:#b7c5bc;font-size:.73rem;white-space:nowrap
+    }
+    .gob-live i{
+      width:7px;height:7px;border-radius:50%;background:var(--sgs);
+      box-shadow:0 0 0 5px rgba(50,208,59,.08)
+    }
+    .gob-scene{height:350px;position:relative;margin:8px 0 0}
+    .aircraft-top{
+      position:absolute;left:50%;top:49%;transform:translate(-50%,-50%);
+      width:118px;height:118px;border-radius:50%;
+      display:grid;place-items:center;
+      background:rgba(50,208,59,.08);
+      border:1px solid rgba(50,208,59,.16);
+      box-shadow:0 0 0 36px rgba(50,208,59,.025),0 0 0 76px rgba(50,208,59,.015);
+      z-index:3
+    }
+    .aircraft-top i{
+      font-size:4.1rem;color:var(--sgs);transform:rotate(-90deg);
+      filter:drop-shadow(0 8px 18px rgba(50,208,59,.18))
+    }
+    .stand-line{
+      position:absolute;height:1px;background:linear-gradient(90deg,transparent,rgba(50,208,59,.28),transparent);
+      transform-origin:left center;z-index:1
+    }
+    .line-a{width:78%;left:11%;top:50%;transform:rotate(0deg)}
+    .line-b{width:72%;left:14%;top:50%;transform:rotate(60deg)}
+    .line-c{width:72%;left:14%;top:50%;transform:rotate(-60deg)}
+    .service-node{
+      position:absolute;z-index:4;display:flex;align-items:center;gap:9px;
+      padding:9px 11px;border-radius:14px;background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(6px);
+      animation:gseFloat 4s ease-in-out infinite
+    }
+    .service-node .node-icon{
+      width:34px;height:34px;border-radius:10px;background:#eff9f0;color:var(--sgs-dark);
+      display:grid;place-items:center;font-size:.9rem
+    }
+    .service-node b{display:block;font-size:.78rem}
+    .service-node small{display:block;font:600 .58rem "Inter";color:#8ea095;letter-spacing:.03em}
+    .node-bag{right:20px;top:48px}
+    .node-gse{right:22px;bottom:45px;animation-delay:.4s}
+    .node-pax{left:18px;top:54px;animation-delay:.8s}
+    .node-team{left:24px;bottom:44px;animation-delay:1.2s}
+    .node-data{left:50%;top:14px;transform:translateX(-50%);animation-delay:1.6s}
+    .node-safety{left:50%;bottom:12px;transform:translateX(-50%);animation-delay:2s}
+    @keyframes gseFloat{50%{margin-top:-4px}}
+    .gob-foot{
+      border-top:1px solid rgba(255,255,255,.09);
+      padding-top:16px;display:grid;grid-template-columns:repeat(3,1fr)
+    }
+    .gob-foot div{text-align:center;border-left:1px solid rgba(255,255,255,.08)}
+    .gob-foot div:last-child{border-left:none}
+    .gob-foot strong{display:block;color:var(--sgs);font:800 1.35rem "Inter"}
+    .gob-foot span{font-size:.76rem;color:#aebeb4}
+
+    /* Journey — only runway + cards, with station dots connected visually */
+    .runway-journey{padding-top:104px}
+    .runway-stop{position:relative}
+    .runway-station-dot{
+      position:absolute;
+      top:-84px;
+      right:50%;
+      transform:translateX(50%);
+      width:42px;height:42px;border-radius:50%;
+      background:var(--sgs);color:#06210c;
+      border:6px solid white;
+      box-shadow:0 0 0 1px #cfe1d2,0 10px 22px rgba(50,208,59,.18);
+      display:grid;place-items:center;
+      font:800 .72rem "Inter";
+      z-index:10
+    }
+    .runway-stop:before{
+      content:"";
+      position:absolute;
+      top:-62px;
+      right:50%;
+      width:1px;
+      height:62px;
+      background:#d3e2d6;
+      z-index:2
+    }
+
+    @media(max-width:900px){
+      .nav-links{display:none}
+      .hero{min-height:auto;padding:135px 0 80px}
+      .hero-grid,.about-grid,.faq-grid,.about-new-grid{grid-template-columns:1fr}
+      .hero-visual{height:500px;margin-top:20px}
+      .track-grid,.timeline-grid,.why-flow,.runway-journey{grid-template-columns:1fr}
+      .timeline-line{display:none}.stage-dot{margin:0 0 18px}.runway-spine{display:none}.runway-journey{padding-top:0}.runway-station-dot{position:static;transform:none;margin-bottom:14px}.runway-stop:before{display:none}
+      .track{min-height:auto}
+      .criterion{grid-template-columns:1fr 50px}.bar{grid-column:1/-1;grid-row:2}
+      .cta-box{grid-template-columns:1fr;padding:36px}
+      .why-stats{grid-template-columns:1fr 1fr}
+      .sgs-logo{width:92px;height:34px}
+    }
+    @media(max-width:560px){
+      .container{width:min(100% - 24px,1180px)}
+      nav .cta{padding:10px 13px}
+      .hero h1{font-size:3.15rem}
+      .photo-frame{inset:20px 0 0 12px}.hero-float-top{left:4px;top:48px}.hero-float-bottom{right:4px;bottom:48px}
+      .float-a{left:-5px}.float-b{right:0}
+      section{padding:78px 0}
+      .section-head{display:block}.section-head p{margin-top:14px}
+      .about-side{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="container nav-inner">
+    <a class="brand brand-clean" href="#top" aria-label="GroundUp">
+      <img class="sgs-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYUOZWerZdDVTtRZ2XgKTT_NR-UK1Ay6l1NKXR5NwbdwP1LmR_hovDIXI&s=10" alt="SGS">
+      <span class="brand-divider"></span>
+      <span class="brand-name">GroundUp</span>
+    </a>
+    <div class="nav-links">
+      <a href="#about">عن الهاكثون</a>
+      <a href="#tracks">المسارات</a>
+      <a href="#journey">رحلة الهاكثون</a>
+      <a href="#criteria">المعايير</a>
+      <a href="#faq">الأسئلة الشائعة</a>
+    </div>
+    <button class="cta" onclick="registerNow()">سجّل فكرتك ←</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="plane-line"></div>
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> ابتكار يبدأ من أرض العمليات</span>
+      <h1>Ground<span class="green">Up</span></h1>
+      <p>
+        مساحة ابتكار داخل الشركة السعودية للخدمات الأرضية نحول فيها تحدياتنا اليومية إلى حلول
+        عملية، ذكية، وقابلة للتطبيق لتصنع مستقبل الخدمات الأرضية.
+      </p>
+      <div class="hero-actions">
+        <button class="cta" onclick="registerNow()">قدّم فكرتك الآن ←</button>
+        <a class="cta dark" href="#tracks">استكشف التحديات</a>
+      </div>
+      </div>
+    
+    
+    
+    <div class="hero-visual photo-visual">
+      <div class="photo-frame clean-photo-frame">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqfz34meaPRBt7KVab6xQkoYpP3aEFSvUtaF97qYn3yVWe8CMDZc_081I&s=10" alt="فريق الخدمات الأرضية">
+        <div class="photo-overlay clean-overlay"></div>
+
+        <div class="hero-float hero-float-top">
+          <strong>12</strong>
+          <span>تحديًا حقيقيًا</span>
+          <small>من قلب بيئة العمل</small>
+        </div>
+
+        <div class="hero-float hero-float-bottom">
+          <strong>فكرة ← نموذج ← أثر</strong>
+          <small>رحلة تحول الإبداع إلى قيمة</small>
+        </div>
+
+        <div class="hero-tag">
+          <i class="fa-solid fa-plane"></i>
+          <span>GroundUp يبدأ من أرض العمليات</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<section id="about" class="about-new">
+  <div class="container">
+    <div class="about-new-grid">
+      <div class="about-new-copy">
+        <span class="eyebrow">فكرة GroundUp</span>
+        <h2>من أرض العمليات<br><span>إلى أثر حقيقي.</span></h2>
+        <p>
+          التحديات الأقوى لا تبدأ من قاعة اجتماعات؛ تبدأ من لحظة يلاحظ فيها أحدهم أن هناك طريقة أفضل للعمل.
+          GroundUp يحوّل هذه الملاحظات إلى فرصة حقيقية: نحدد التحدي، نطوّر الحل، نختبره، ثم ندفع أفضل الأفكار نحو التطبيق.
+        </p>
+
+        <div class="about-points">
+          <div class="about-point">
+            <div class="about-point-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div><strong>تحدٍ من الواقع</strong><span>نبدأ من مشكلة ملموسة في بيئة العمل.</span></div>
+          </div>
+          <div class="about-point">
+            <div class="about-point-icon"><i class="fa-solid fa-lightbulb"></i></div>
+            <div><strong>مساحة للابتكار</strong><span>الحل مفتوح: تشغيلي، تقني، رقمي أو مزيج بينها.</span></div>
+          </div>
+          <div class="about-point">
+            <div class="about-point-icon"><i class="fa-solid fa-rocket"></i></div>
+            <div><strong>طريق نحو التطبيق</strong><span>أفضل الحلول يمكن أن تنتقل إلى تجربة عملية داخل الشركة.</span></div>
+          </div>
+        </div>
+      </div>
+
+      
+      
+      <div class="about-new-visual">
+        <div class="ground-ops-board">
+          <div class="gob-head">
+            <div>
+              <span class="gob-kicker">GROUND OPERATIONS</span>
+              <strong>منظومة واحدة. عمليات مترابطة.</strong>
+            </div>
+            <span class="gob-live"><i></i> تشغيل حي</span>
+          </div>
+
+          <div class="gob-scene">
+            <div class="stand-line line-a"></div>
+            <div class="stand-line line-b"></div>
+            <div class="stand-line line-c"></div>
+
+            <div class="aircraft-top">
+              <i class="fa-solid fa-plane"></i>
+            </div>
+
+            <div class="service-node node-bag">
+              <span class="node-icon"><i class="fa-solid fa-suitcase-rolling"></i></span>
+              <div><b>الأمتعة</b><small>Baggage</small></div>
+            </div>
+
+            <div class="service-node node-gse">
+              <span class="node-icon"><i class="fa-solid fa-truck-ramp-box"></i></span>
+              <div><b>المعدات</b><small>GSE</small></div>
+            </div>
+
+            <div class="service-node node-pax">
+              <span class="node-icon"><i class="fa-solid fa-person-walking-luggage"></i></span>
+              <div><b>المسافر</b><small>Passenger</small></div>
+            </div>
+
+            <div class="service-node node-team">
+              <span class="node-icon"><i class="fa-solid fa-people-group"></i></span>
+              <div><b>الفرق</b><small>Teams</small></div>
+            </div>
+
+            <div class="service-node node-data">
+              <span class="node-icon"><i class="fa-solid fa-chart-simple"></i></span>
+              <div><b>البيانات</b><small>Data</small></div>
+            </div>
+
+            <div class="service-node node-safety">
+              <span class="node-icon"><i class="fa-solid fa-shield-halved"></i></span>
+              <div><b>السلامة</b><small>Safety</small></div>
+            </div>
+          </div>
+
+          <div class="gob-foot">
+            <div><strong>03</strong><span>مسارات</span></div>
+            <div><strong>12</strong><span>تحديًا</span></div>
+            <div><strong>03</strong><span>مراحل</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tracks" id="tracks">
+  <div class="container">
+    <div class="section-head">
+      <div><span class="eyebrow">المسارات والتحديات</span><h2>اختر المساحة التي<br>تريد أن تغيّرها.</h2></div>
+      <p>كل مسار يحتوي على أربعة تحديات. نحدد المشكلة، وأنت تحدد طريقة الحل — تقنية، تشغيلية، رقمية أو مزيج بينها.</p>
+    </div>
+    <div class="track-grid">
+      <article class="track">
+        <div class="track-num">TRACK 01</div><div class="track-icon line-icon"><i class="fa-solid fa-plane-departure"></i></div>
+        <h3>التميز التشغيلي</h3><div class="lead">عمليات أسرع، أكثر كفاءة وموثوقية.</div>
+        <div class="challenge"><b>1</b><span class="challenge-copy"><strong>Smarter Turnaround</strong><small>كيف نرفع كفاءة تجهيز الطائرات ونقلل التأخيرات التشغيلية؟</small></span></div>
+        <div class="challenge"><b>2</b><span class="challenge-copy"><strong>Baggage Flow</strong><small>كيف نحسن تدفق الأمتعة ونقلل الأمتعة المتخلفة أو سوء المناولة؟</small></span></div>
+        <div class="challenge"><b>3</b><span class="challenge-copy"><strong>Workforce Optimization</strong><small>كيف نحسن توزيع القوى العاملة بما يتناسب مع الاحتياج التشغيلي الفعلي؟</small></span></div>
+        <div class="challenge"><b>4</b><span class="challenge-copy"><strong>GSE Utilization</strong><small>كيف نرفع كفاءة توفر وتوزيع واستخدام معدات الدعم الأرضي؟</small></span></div>
+      </article>
+      <article class="track">
+        <div class="track-num">TRACK 02</div><div class="track-icon line-icon"><i class="fa-solid fa-microchip"></i></div>
+        <h3>الحلول الذكية والرقمية</h3><div class="lead">بيانات وتقنية تحول طريقة العمل.</div>
+        <div class="challenge"><b>1</b><span class="challenge-copy"><strong>Predict Before It Happens</strong><small>كيف نتنبأ بالتعثرات والمخاطر التشغيلية قبل حدوثها؟</small></span></div>
+        <div class="challenge"><b>2</b><span class="challenge-copy"><strong>From Manual to Digital</strong><small>كيف نبسّط أو نؤتمت الإجراءات اليدوية والمتكررة؟</small></span></div>
+        <div class="challenge"><b>3</b><span class="challenge-copy"><strong>Connected Operations</strong><small>كيف نحسن تدفق المعلومات والتنسيق اللحظي بين الفرق التشغيلية؟</small></span></div>
+        <div class="challenge"><b>4</b><span class="challenge-copy"><strong>Smarter Decisions</strong><small>كيف نحول بيانات الشركة إلى قرارات أسرع وأكثر ذكاءً؟</small></span></div>
+      </article>
+      <article class="track">
+        <div class="track-num">TRACK 03</div><div class="track-icon line-icon"><i class="fa-solid fa-leaf"></i></div>
+        <h3>الاستدامة وتجربة الإنسان</h3><div class="lead">تجربة أفضل للمسافر والموظف والبيئة.</div>
+        <div class="challenge"><b>1</b><span class="challenge-copy"><strong>Seamless Passenger Journey</strong><small>كيف نجعل تجربة المسافر أثناء الخدمات الأرضية أسهل وأكثر سلاسة؟</small></span></div>
+        <div class="challenge"><b>2</b><span class="challenge-copy"><strong>Inclusive Ground Services</strong><small>كيف نحسن تجربة المسافرين من ذوي الإعاقة ومحدودي الحركة والخدمات الخاصة؟</small></span></div>
+        <div class="challenge"><b>3</b><span class="challenge-copy"><strong>Better Employee Experience</strong><small>كيف نقلل الاحتكاكات اليومية ونحسن تجربة الموظف وفرق العمل الميدانية؟</small></span></div>
+        <div class="challenge"><b>4</b><span class="challenge-copy"><strong>Greener Ground Operations</strong><small>كيف نقلل الهدر واستهلاك الطاقة والانبعاثات والاستخدام غير الفعال للموارد؟</small></span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<section id="journey" class="journey-runway">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">رحلة الهاكثون</span>
+        <h2>ثلاث محطات.<br>والوجهة: حل قابل للتطبيق.</h2>
+      </div>
+      <p>صممنا رحلة GroundUp مثل رحلة الطائرة: تبدأ من بوابة الفكرة، تمر بمرحلة البناء والاختبار، وتنتهي عند منصة العرض النهائي.</p>
+    </div>
+
+    
+    <div class="runway-journey">
+      <div class="runway-spine">
+        <span class="runway-dash d1"></span><span class="runway-dash d2"></span><span class="runway-dash d3"></span>
+        <i class="fa-solid fa-plane runway-plane"></i>
+      </div>
+
+      <article class="runway-stop stop-1"><span class="runway-station-dot">01</span>
+        <div class="station-badge">المحطة الأولى</div>
+        <div class="runway-code">GATE 01</div>
+        <div class="runway-icon"><i class="fa-solid fa-file-pen"></i></div>
+        <h3>تقديم الفكرة</h3>
+        <p>ابدأ بفكرة واضحة مرتبطة بأحد التحديات.</p>
+        <ul>
+          <li>اختيار المسار والتحدي</li>
+          <li>وصف المشكلة</li>
+          <li>الفكرة المقترحة</li>
+          <li>الفئة المستفيدة</li>
+          <li>الأثر المتوقع</li>
+        </ul>
+        <div class="runway-note">لا نطلب عرضًا أو نموذجًا أوليًا في هذه المرحلة.</div>
+      </article>
+
+      <article class="runway-stop stop-2"><span class="runway-station-dot">02</span>
+        <div class="station-badge">المحطة الثانية</div>
+        <div class="runway-code">TAXI 02</div>
+        <div class="runway-icon"><i class="fa-solid fa-gears"></i></div>
+        <h3>تطوير الحل والنموذج الأولي</h3>
+        <p>الفرق المتأهلة تبني وتختبر الفكرة خلال المرحلة الافتراضية.</p>
+        <ul>
+          <li>ورش وإرشاد من المختصين</li>
+          <li>Prototype / MVP</li>
+          <li>شرح آلية العمل</li>
+          <li>أثر قابل للقياس</li>
+          <li>خطة تطبيق مبدئية</li>
+        </ul>
+        <div class="runway-note">في نهاية المرحلة يتم اختيار الفرق النهائية.</div>
+      </article>
+
+      <article class="runway-stop stop-3"><span class="runway-station-dot">03</span>
+        <div class="station-badge">المحطة الثالثة</div>
+        <div class="runway-code">RUNWAY 03</div>
+        <div class="runway-icon"><i class="fa-solid fa-trophy"></i></div>
+        <h3>العرض والتحكيم النهائي</h3>
+        <p>الفرق النهائية تعرض الحل أمام لجنة التحكيم.</p>
+        <ul>
+          <li>عرض نهائي</li>
+          <li>Demo للنموذج</li>
+          <li>الأثر ومؤشرات القياس</li>
+          <li>خطة التنفيذ</li>
+          <li>الأسئلة والأجوبة</li>
+        </ul>
+        <div class="runway-note">أفضل الحلول قد تنتقل إلى تجربة فعلية داخل SGS.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="criteria" id="criteria">
+  <div class="container">
+    <div class="section-head">
+      <div><span class="eyebrow">معايير التقييم</span><h2>كل مرحلة لها<br>سؤال مختلف.</h2></div>
+      <p>في البداية نقيم قوة الفكرة. في المرحلة الثانية نقيم قدرة الفريق على تحويلها إلى حل. وفي النهائي نقيم جاهزية الحل لصناعة أثر حقيقي.</p>
+    </div>
+    <div class="criteria-tabs">
+      <button class="tab active" data-tab="c1">01 — الفكرة</button>
+      <button class="tab" data-tab="c2">02 — النموذج الأولي</button>
+      <button class="tab" data-tab="c3">03 — النهائي</button>
+    </div>
+
+    <div class="criteria-panel active" id="c1">
+      <div class="criterion"><span class="criterion-name">الارتباط بالتحدي</span><div class="bar"><i style="width:25%"></i></div><span class="criterion-pct">25%</span></div>
+      <div class="criterion"><span class="criterion-name">وضوح الفكرة والمشكلة</span><div class="bar"><i style="width:20%"></i></div><span class="criterion-pct">20%</span></div>
+      <div class="criterion"><span class="criterion-name">الأثر المتوقع</span><div class="bar"><i style="width:25%"></i></div><span class="criterion-pct">25%</span></div>
+      <div class="criterion"><span class="criterion-name">الابتكار</span><div class="bar"><i style="width:15%"></i></div><span class="criterion-pct">15%</span></div>
+      <div class="criterion"><span class="criterion-name">قابلية التطبيق المبدئية</span><div class="bar"><i style="width:15%"></i></div><span class="criterion-pct">15%</span></div>
+      <div class="requirements-note">الهدف في هذه المرحلة: هل الفكرة قوية، واضحة، وتستحق أن نعطيها فرصة للتطوير؟</div>
+    </div>
+
+    <div class="criteria-panel" id="c2">
+      <div class="criterion"><span class="criterion-name">جودة الحل ومعالجة المشكلة</span><div class="bar"><i style="width:20%"></i></div><span class="criterion-pct">20%</span></div>
+      <div class="criterion"><span class="criterion-name">الأثر والقيمة المضافة</span><div class="bar"><i style="width:25%"></i></div><span class="criterion-pct">25%</span></div>
+      <div class="criterion"><span class="criterion-name">قابلية التنفيذ</span><div class="bar"><i style="width:20%"></i></div><span class="criterion-pct">20%</span></div>
+      <div class="criterion"><span class="criterion-name">الابتكار</span><div class="bar"><i style="width:15%"></i></div><span class="criterion-pct">15%</span></div>
+      <div class="criterion"><span class="criterion-name">جودة النموذج الأولي</span><div class="bar"><i style="width:10%"></i></div><span class="criterion-pct">10%</span></div>
+      <div class="criterion"><span class="criterion-name">قابلية التوسع</span><div class="bar"><i style="width:10%"></i></div><span class="criterion-pct">10%</span></div>
+      <div class="requirements-note">الهدف في هذه المرحلة: هل استطاع الفريق تحويل الفكرة إلى حل يمكن اختباره وتطبيقه؟</div>
+    </div>
+
+    <div class="criteria-panel" id="c3">
+      <div class="criterion"><span class="criterion-name">الأثر والقيمة للشركة</span><div class="bar"><i style="width:25%"></i></div><span class="criterion-pct">25%</span></div>
+      <div class="criterion"><span class="criterion-name">قابلية التنفيذ والتطبيق</span><div class="bar"><i style="width:20%"></i></div><span class="criterion-pct">20%</span></div>
+      <div class="criterion"><span class="criterion-name">قوة الحل والابتكار</span><div class="bar"><i style="width:20%"></i></div><span class="criterion-pct">20%</span></div>
+      <div class="criterion"><span class="criterion-name">جودة النموذج والـDemo</span><div class="bar"><i style="width:15%"></i></div><span class="criterion-pct">15%</span></div>
+      <div class="criterion"><span class="criterion-name">قابلية التوسع والاستدامة</span><div class="bar"><i style="width:10%"></i></div><span class="criterion-pct">10%</span></div>
+      <div class="criterion"><span class="criterion-name">العرض والإجابة على اللجنة</span><div class="bar"><i style="width:10%"></i></div><span class="criterion-pct">10%</span></div>
+      <div class="requirements-note">الهدف في النهائي: هل هذا الحل يستحق الفوز والانتقال إلى تجربة فعلية داخل SGS؟</div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="section-head">
+      <div><span class="eyebrow">الأسئلة الشائعة</span><h2>قبل ما تبدأ،<br>هذه أهم الإجابات.</h2></div>
+      <p>يمكن تعديل الإجابات النهائية بمجرد اعتماد شروط المشاركة الرسمية والمواعيد ورابط التسجيل.</p>
+    </div>
+    <div class="faq-grid">
+      
+      <aside class="faq-aside faq-photo">
+        <img src="https://www.saudiags.com/wp-content/uploads/2021/06/A37I0612.jpg" alt="فريق الشركة السعودية للخدمات الأرضية">
+        <div class="faq-photo-overlay"></div>
+        <div class="faq-caption">
+          <h3>قبل ما تبدأ...</h3>
+          <span>هذه أهم الإجابات اللي تحتاج تعرفها.</span>
+        </div>
+      </aside>
+
+      <div class="accordion">
+        <div class="faq-item open"><button class="faq-q"><span>من يمكنه المشاركة في الهاكثون؟</span><span>+</span></button><div class="faq-a"><p>المشاركة مخصصة للفئة التي ستعتمدها SGS رسميًا. يمكن تحديث هذا النص لاحقًا ليشمل الموظفين المؤهلين، عدد أعضاء الفريق، وأي متطلبات إضافية.</p></div></div>
+        <div class="faq-item"><button class="faq-q"><span>هل أحتاج إلى نموذج أولي عند التسجيل؟</span><span>+</span></button><div class="faq-a"><p>لا. في المرحلة الأولى المطلوب فقط تقديم الفكرة بشكل واضح ومختصر. النموذج الأولي مطلوب فقط للفرق المتأهلة إلى المرحلة الافتراضية.</p></div></div>
+        <div class="faq-item"><button class="faq-q"><span>هل يجب أن يكون الحل تقنيًا أو يعتمد على الذكاء الاصطناعي؟</span><span>+</span></button><div class="faq-a"><p>لا. التقنية وسيلة وليست هدفًا. يمكن تقديم حل تشغيلي أو رقمي أو تقني أو مزيج بينها، طالما أنه يعالج التحدي بوضوح وقابل للتطبيق.</p></div></div>
+        <div class="faq-item"><button class="faq-q"><span>هل يمكن للفريق اختيار أكثر من تحدٍ؟</span><span>+</span></button><div class="faq-a"><p>يوصى بأن يركز كل فريق على تحدٍ واحد ضمن مسار واحد حتى يكون الحل أكثر عمقًا ووضوحًا خلال مراحل الهاكثون.</p></div></div>
+        <div class="faq-item"><button class="faq-q"><span>ماذا يحدث للفرق التي تتأهل للمرحلة الثانية؟</span><span>+</span></button><div class="faq-a"><p>تدخل الفرق في فترة تطوير افتراضية تشمل التوجيه والورش والدعم من المختصين، ثم تقدم نموذجًا أوليًا ومخرجات توضح أثر الحل وقابليته للتطبيق.</p></div></div>
+        <div class="faq-item"><button class="faq-q"><span>ماذا يحدث للحلول الفائزة؟</span><span>+</span></button><div class="faq-a"><p>يقترح أن تحصل أفضل الحلول على فرصة للانتقال إلى مرحلة تجريبية Pilot بالتعاون مع الإدارة المعنية داخل SGS، وفق اعتماد الشركة وإمكانات التنفيذ.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <div class="cta-box">
+      <div><h2>عندك فكرة تغيّر طريقة عملنا؟</h2><p>اختر تحديًا. ابدأ بفكرة. وابنِ حلًا يمكن أن ينتقل من الشاشة إلى أرض العمليات.</p></div>
+      <button class="cta dark" onclick="registerNow()">ابدأ التسجيل ←</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="brand"><img class="sgs-logo footer-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYUOZWerZdDVTtRZ2XgKTT_NR-UK1Ay6l1NKXR5NwbdwP1LmR_hovDIXI&s=10" alt="Saudi Ground Services"><span class="brand-name">GroundUp</span></div>
+    <div>
+      <div class="footer-note">نسخة تجريبية قابلة للتخصيص بالمواعيد والجوائز وشروط المشاركة ورابط التسجيل النهائي.</div>
+      <div class="source-note">الهوية العامة مستلهمة من العلامة الرسمية للشركة السعودية للخدمات الأرضية.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.tab').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('.criteria-panel').forEach(x=>x.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    })
+  });
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click',()=>q.parentElement.classList.toggle('open'));
+  });
+  function registerNow(){
+    alert('أضيفوا رابط منصة التسجيل الرسمية هنا عند اعتماده.');
+    // عند اعتماد رابط التسجيل، استبدل السطر أعلاه بـ:
+    // window.open('YOUR_REGISTRATION_LINK','_blank');
+  }
+</script>
+</body>
+</html>
