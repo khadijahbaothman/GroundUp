@@ -6979,17 +6979,13 @@ nav.nav-scrolled{
       </article>
     </div>
 
-    <div class="awards-total-v50 awards-total-secondary-v51">
-      <span><i class="fa-solid fa-sparkles"></i> جوائز نقدية + جوائز خاصة</span>
-      <strong>فرص حقيقية للتجربة والتطبيق داخل SGS</strong>
-    </div>
-
-    <div class="awards-impact-v50">
-      <i class="fa-solid fa-rocket"></i>
+    <div class="awards-impact-combined-v60">
+      <span class="awards-impact-icon-v60"><i class="fa-solid fa-rocket"></i></span>
       <div>
-        <strong>والفوز ليس نهاية الرحلة.</strong>
-        <p>أفضل الحلول تحصل على فرصة للتجربة والتطبيق داخل SGS.</p>
+        <strong>الفوز بداية للأثر</strong>
+        <p>جوائز نقدية وخاصة، وفرصة لأفضل الحلول للتجربة والتطبيق داخل SGS.</p>
       </div>
+      <span class="awards-impact-spark-v60"><i class="fa-solid fa-trophy"></i></span>
     </div>
   </div>
 </section>
@@ -7102,7 +7098,7 @@ nav.nav-scrolled{
 <section class="final-cta">
   <div class="container">
     <div class="cta-box">
-      <div><h2>عندك فكرة تغيّر طريقة عملنا؟</h2><p>اختر تحديًا. ابدأ بفكرة. وابنِ حلًا يمكن أن ينتقل من الشاشة إلى أرض العمليات.</p></div>
+      <div><h2>عندك فكرة تغيّر طريقة عملنا؟</h2><p>اختر تحديًا، ابدأ بفكرة، وابنِ حلًا قابلًا للتطبيق.</p></div>
       <button class="cta dark" onclick="registerNow()">ابدأ التسجيل ←</button>
     </div>
   </div>
@@ -8019,6 +8015,251 @@ section .section-head p{max-width:820px !important;margin-top:14px !important;}
 })();
 </script>
 
+
+<style id="mobile-compact-all-sections-v70">
+/* =========================================================
+   V70 — MOBILE COMPACT PASS
+   Goal: same visual identity, less vertical length on phones.
+   ========================================================= */
+@media (max-width:640px){
+  :root{--mobile-section-gap:52px;}
+
+  /* Global rhythm */
+  section{padding:var(--mobile-section-gap) 0 !important;}
+  .container{width:min(calc(100% - 20px),1180px)!important;}
+  .eyebrow{padding:6px 11px!important;font-size:.73rem!important;}
+
+  .section-head,
+  .flight-journey-head,
+  .journey-flightline-head,
+  .criteria-v33-head,
+  .awards-stage-head-v41,
+  .awards-v35-head,
+  .faq-head-v38{
+    margin-bottom:22px!important;
+  }
+  .section-head h2,
+  .flight-journey-head h2,
+  .journey-flightline-head h2,
+  .criteria-v33-head h2,
+  .awards-stage-head-v41 h2,
+  .awards-v35-head h2,
+  .faq-head-v38 h2{
+    font-size:clamp(1.85rem,9vw,2.2rem)!important;
+    line-height:1.13!important;
+  }
+  .section-head p,
+  .flight-journey-head p,
+  .journey-flightline-head p,
+  .criteria-v33-head p,
+  .awards-stage-head-v41 p,
+  .awards-v35-head p,
+  .faq-head-v38 p{
+    margin-top:9px!important;
+    font-size:.82rem!important;
+    line-height:1.65!important;
+  }
+
+  /* HERO / Boarding pass — compact enough to feel like one screen */
+  .hero-ticket-full{padding:72px 0 22px!important;}
+  .full-ticket-shell{width:calc(100% - 14px)!important;}
+  .full-boarding-pass{border-radius:20px!important;}
+  .full-ticket-top{min-height:64px!important;padding:12px 14px!important;}
+  .full-ticket-body{min-height:248px!important;padding:26px 13px 22px!important;}
+  .full-ticket-message h1{font-size:clamp(2rem,10vw,2.75rem)!important;line-height:1.02!important;}
+  .full-ticket-message p{margin-top:14px!important;font-size:.74rem!important;line-height:1.62!important;}
+  .full-ticket-message small{margin-top:6px!important;font-size:.58rem!important;}
+  .full-ticket-stub{padding:10px 12px 11px!important;}
+  .stub-head{min-height:34px!important;margin-bottom:2px!important;}
+  .stub-field{padding:5px 2px 7px!important;}
+  .stub-route{padding:6px 0!important;}
+  .stub-status-row{padding:5px 0 3px!important;}
+  .stub-barcode{height:22px!important;}
+
+  /* ABOUT */
+  #about{padding:48px 0 50px!important;}
+  #about .about-v22-grid,
+  #about .about-v23 .about-v22-grid{gap:22px!important;}
+  #about .about-v22-copy h2,
+  #about .about-v23 .about-v22-copy h2{
+    margin:10px auto 12px!important;
+    font-size:clamp(1.9rem,9vw,2.35rem)!important;
+    line-height:1.16!important;
+  }
+  #about .about-v22-intro,
+  #about .about-v23 .about-v22-intro{
+    margin-bottom:16px!important;
+    font-size:.84rem!important;
+    line-height:1.75!important;
+  }
+  #about .about-v22-points,
+  #about .about-v23 .about-v22-points{margin-top:14px!important;}
+  #about .about-v22-point,
+  #about .about-v23 .about-v22-point{
+    grid-template-columns:42px 1fr!important;
+    gap:10px!important;
+    padding:11px 0!important;
+  }
+  #about .about-v22-num,
+  #about .about-v23 .about-v22-num{width:40px!important;height:40px!important;border-radius:12px!important;font-size:.72rem!important;}
+  #about .about-v22-point strong{font-size:.86rem!important;margin-bottom:2px!important;}
+  #about .about-v22-point span{font-size:.75rem!important;line-height:1.55!important;}
+  #about .about-v23-visual{margin-top:8px!important;max-width:92%!important;}
+  #about .about-v23-visual img{width:92%!important;max-width:520px!important;}
+
+  /* TRACKS */
+  #tracks{padding:52px 0 56px!important;}
+  #tracks .section-head{margin-bottom:24px!important;}
+  #tracks .track-grid{gap:12px!important;}
+  #tracks .track{padding:18px 16px!important;border-radius:22px!important;min-height:0!important;}
+  #tracks .track-icon{width:44px!important;height:44px!important;border-radius:13px!important;font-size:1.15rem!important;margin:12px auto!important;}
+  #tracks .track h3{font-size:1.15rem!important;margin-bottom:5px!important;}
+  #tracks .track .lead{font-size:.74rem!important;line-height:1.5!important;margin-bottom:8px!important;}
+  #tracks .challenge{padding:8px 0!important;gap:7px!important;}
+  #tracks .challenge b{width:21px!important;height:21px!important;font-size:.6rem!important;}
+  #tracks .challenge-copy strong{font-size:.75rem!important;}
+  #tracks .challenge-copy small{font-size:.66rem!important;line-height:1.45!important;}
+  #tracks .open-track-note{margin-top:10px!important;padding:10px!important;font-size:.66rem!important;line-height:1.45!important;}
+
+  /* JOURNEY — preserve alternating layout, but reduce dead vertical space */
+  #journey{padding:50px 0 58px!important;}
+  #journey .journey-flightline-head{margin-bottom:16px!important;}
+  #journey .journey-flightline{padding-top:8px!important;padding-bottom:14px!important;}
+  #journey .journey-stage{min-height:102px!important;}
+  #journey .journey-stage-icon{width:42px!important;height:42px!important;border-radius:12px!important;font-size:1rem!important;margin-bottom:6px!important;}
+  #journey .journey-stage h3{font-size:.86rem!important;line-height:1.3!important;}
+  #journey .journey-stage p{font-size:.64rem!important;line-height:1.42!important;margin:3px 0 5px!important;}
+  #journey .journey-stage time{font-size:.58rem!important;padding:4px 7px!important;min-height:23px!important;}
+  #journey .journey-node{width:42px!important;height:42px!important;border-width:5px!important;font-size:.68rem!important;}
+  #journey .journey-runway{width:18px!important;}
+
+  /* CRITERIA */
+  #criteria{padding:52px 0 58px!important;}
+  #criteria .criteria-stage-switcher{gap:8px!important;margin-bottom:14px!important;}
+  #criteria .criteria-stage-btn{min-height:66px!important;padding:10px 12px!important;grid-template-columns:42px 1fr auto!important;gap:10px!important;border-radius:16px!important;}
+  #criteria .criteria-stage-icon{width:40px!important;height:40px!important;font-size:1rem!important;}
+  #criteria .criteria-stage-copy strong{font-size:.86rem!important;}
+  #criteria .criteria-stage-copy small{font-size:.65rem!important;}
+  #criteria .criteria-stage-total{font-size:.62rem!important;padding:5px 8px!important;min-width:48px!important;}
+  #criteria .criteria-panel{padding:18px 10px 14px!important;border-radius:18px!important;}
+  #criteria .criteria-panel-title{margin-bottom:14px!important;}
+  #criteria .criteria-panel-title h3{font-size:1.25rem!important;}
+  #criteria .criteria-item{padding:6px 4px 14px!important;}
+  #criteria .criteria-item-icon{width:42px!important;height:42px!important;margin-bottom:7px!important;}
+  #criteria .criteria-ring{width:62px!important;height:62px!important;margin-bottom:8px!important;font-size:.86rem!important;}
+  #criteria .criteria-item h4{font-size:.78rem!important;margin-bottom:3px!important;}
+  #criteria .criteria-item p{font-size:.63rem!important;line-height:1.5!important;}
+  #criteria .criteria-goal{margin-top:12px!important;padding:10px 11px!important;font-size:.7rem!important;}
+
+  /* AWARDS */
+  #awards{padding:52px 0 58px!important;}
+  #awards .awards-v50-head{margin-bottom:22px!important;}
+  #awards .awards-total-hero-v51{margin:16px auto 20px!important;padding:14px 18px!important;border-radius:18px!important;}
+  #awards .awards-total-hero-v51 strong{font-size:clamp(2.1rem,11vw,3rem)!important;}
+  #awards .awards-v50-stage{gap:10px!important;padding:14px!important;border-radius:22px!important;}
+  #awards .award-place-v50{min-height:112px!important;padding:12px!important;border-radius:18px!important;}
+  #awards .award-medal-v50{width:44px!important;height:44px!important;}
+  #awards .award-block-v50{width:66px!important;height:66px!important;border-radius:16px!important;}
+  #awards .award-place-v50 strong{font-size:.92rem!important;}
+  #awards .award-place-v50 span{font-size:.82rem!important;}
+  #awards .special-awards-v50{gap:10px!important;margin-top:14px!important;}
+  #awards .special-award-v50{padding:14px 8px!important;min-height:130px!important;border-radius:18px!important;}
+  #awards .special-award-v50 h4{font-size:.78rem!important;}
+  #awards .special-award-v50 p{font-size:.65rem!important;}
+  #awards .awards-impact-combined-v60{margin-top:14px!important;}
+
+  /* FAQ */
+  #faq{padding:50px 0 56px!important;}
+  #faq .faq-head-v38{margin-bottom:18px!important;}
+  #faq .faq-main-v38{gap:18px!important;}
+  #faq .faq-photo-shell-v38{max-height:235px!important;aspect-ratio:16/9!important;border-radius:20px!important;}
+  #faq .faq-item{margin-bottom:8px!important;}
+  #faq .faq-q{padding:14px 14px!important;font-size:.82rem!important;border-radius:15px!important;}
+  #faq .faq-q span:last-child{width:30px!important;height:30px!important;font-size:1.05rem!important;}
+  #faq .faq-a p{padding:0 14px 14px!important;font-size:.74rem!important;line-height:1.6!important;}
+
+  /* FINAL CTA + FOOTER */
+  .final-cta{padding:0 0 28px!important;}
+  .cta-box{padding:16px 12px!important;gap:10px!important;border-radius:20px!important;}
+  .cta-box h2{font-size:1.05rem!important;margin-bottom:4px!important;}
+  .cta-box p{font-size:.66rem!important;}
+  footer{padding:18px 0!important;}
+  .footer-inner{gap:10px!important;}
+  .footer-note{font-size:.68rem!important;}
+  .source-note{font-size:.6rem!important;margin-top:3px!important;}
+}
+</style>
+
+<script id="awards-countup-on-view-v70">
+(function(){
+  const section=document.querySelector('#awards');
+  if(!section) return;
+
+  // Disable any earlier count-up state and keep the values at zero until the
+  // awards section actually enters the user's viewport.
+  const prizes=[
+    [section.querySelector('.awards-total-hero-v51 strong'),50000],
+    [section.querySelector('.award-place-v50.first span'),20000],
+    [section.querySelector('.award-place-v50.second span'),15000],
+    [section.querySelector('.award-place-v50.third span'),10000]
+  ].filter(([el])=>el);
+
+  const fmt=n=>'SAR '+Math.round(n).toLocaleString('en-US');
+  prizes.forEach(([el,target])=>{
+    el.dataset.prizeTarget=String(target);
+    el.textContent=fmt(0);
+  });
+
+  const reduced=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let started=false;
+
+  function animate(el,target,delay){
+    if(reduced){ el.textContent=fmt(target); return; }
+    setTimeout(()=>{
+      const duration=1100;
+      const t0=performance.now();
+      function frame(now){
+        const p=Math.min(1,(now-t0)/duration);
+        const eased=1-Math.pow(1-p,3);
+        el.textContent=fmt(target*eased);
+        if(p<1) requestAnimationFrame(frame);
+        else el.textContent=fmt(target);
+      }
+      requestAnimationFrame(frame);
+    },delay);
+  }
+
+  function start(){
+    if(started) return;
+    started=true;
+    prizes.forEach(([el,target],i)=>animate(el,target,i*90));
+  }
+
+  if(!('IntersectionObserver' in window)){
+    // Graceful fallback: only run after the first scroll/touch interaction.
+    const once=()=>{ start(); window.removeEventListener('scroll',once); window.removeEventListener('touchstart',once); };
+    window.addEventListener('scroll',once,{passive:true,once:true});
+    window.addEventListener('touchstart',once,{passive:true,once:true});
+    return;
+  }
+
+  const io=new IntersectionObserver(entries=>{
+    for(const entry of entries){
+      // Start only when the awards block is genuinely on screen, not merely
+      // preloaded near the viewport.
+      if(entry.isIntersecting && entry.intersectionRatio>=0.18){
+        start();
+        io.disconnect();
+        break;
+      }
+    }
+  },{
+    threshold:[0,.18,.35],
+    rootMargin:'0px 0px -18% 0px'
+  });
+  io.observe(section);
+})();
+</script>
 </body>
 </html>
 <style>
@@ -8220,5 +8461,201 @@ section .section-head p{max-width:820px !important;margin-top:14px !important;}
     right:calc(50% + 26px) !important;
   }
   .journey-stage-card::after{width:16px !important;}
+}
+</style>
+
+
+<style id="mobile-three-final-adjustments-v60">
+/* =========================================================
+   V60 — MOBILE ONLY: compact boarding pass, awards count-up
+   support, merged impact card, compact CTA and centered footer
+   ========================================================= */
+
+/* Unified awards impact card (all sizes) */
+.awards-impact-combined-v60{
+  max-width:820px;
+  margin:24px auto 0;
+  padding:18px 22px;
+  display:grid;
+  grid-template-columns:48px minmax(0,1fr) 42px;
+  gap:14px;
+  align-items:center;
+  direction:rtl;
+  text-align:right;
+  border:1px solid #d7e8db;
+  border-radius:20px;
+  background:linear-gradient(135deg,#ffffff 0%,#f2faf4 100%);
+}
+.awards-impact-icon-v60,
+.awards-impact-spark-v60{
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  color:#08743d;
+  background:#e5f6e9;
+}
+.awards-impact-icon-v60{width:48px;height:48px;font-size:1.05rem}
+.awards-impact-spark-v60{width:38px;height:38px;font-size:.85rem}
+.awards-impact-combined-v60 strong{display:block;color:#0d4e3a;font-size:1rem}
+.awards-impact-combined-v60 p{margin:3px 0 0;color:#65766c;font-size:.82rem;line-height:1.65}
+
+/* Prize numbers stay visually stable while counting */
+.awards-v50 [data-prize-target]{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+@media(max-width:640px){
+  /* 1) BOARDING PASS — substantially shorter on phones */
+  .hero-ticket-full{
+    min-height:auto!important;
+    padding:76px 0 26px!important;
+  }
+  .full-ticket-shell{width:calc(100% - 18px)!important}
+  .full-boarding-pass{
+    min-height:0!important;
+    height:auto!important;
+    border-radius:22px!important;
+  }
+  .full-ticket-top{
+    min-height:70px!important;
+    padding:14px 16px!important;
+    gap:10px!important;
+  }
+  .full-ticket-brand .hero-brand-word .dark,
+  .full-ticket-brand .hero-brand-word .bright{font-size:1.22rem!important}
+  .full-ticket-brand .hero-radial-o{width:19px!important;height:19px!important}
+  .full-ticket-brand .hero-radial-o:after{inset:5px!important}
+  .full-ticket-brand small{margin-top:6px!important;font-size:.48rem!important}
+  .full-ticket-label b{font-size:.64rem!important}
+  .full-ticket-label small{margin-top:5px!important;font-size:.4rem!important}
+
+  .full-ticket-body{
+    min-height:275px!important;
+    padding:34px 15px 28px!important;
+  }
+  .flight-path-decor{
+    width:94px!important;height:118px!important;left:1%!important;top:7%!important;opacity:.48!important
+  }
+  .flight-path-decor i{font-size:1.45rem!important}
+  .flight-path-decor span{left:25px!important;top:23px!important;width:58px!important;height:76px!important}
+  .full-ticket-message h1{
+    font-size:clamp(2.18rem,10.8vw,3rem)!important;
+    line-height:1.03!important;
+    gap:.03em!important;
+  }
+  .full-ticket-message p{
+    max-width:95%!important;
+    margin-top:17px!important;
+    font-size:.78rem!important;
+    line-height:1.72!important;
+  }
+  .full-ticket-message small{margin-top:8px!important;font-size:.62rem!important}
+  .scroll-cue{display:none!important}
+
+  .full-ticket-stub{
+    padding:12px 14px 13px!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    column-gap:6px!important;
+    row-gap:0!important;
+  }
+  .stub-head{
+    grid-column:1/-1!important;
+    min-height:38px!important;
+    margin:0 0 3px!important;
+    align-items:center!important;
+  }
+  .stub-plane{font-size:1.35rem!important;margin-top:0!important}
+  .stub-sgs-logo{width:84px!important;height:38px!important;padding:1px!important}
+  .stub-field{padding:7px 3px 9px!important;text-align:center!important}
+  .stub-field small{font-size:.43rem!important;margin-bottom:5px!important}
+  .stub-field strong{font-size:.83rem!important}
+  .stub-route{
+    grid-column:1/-1!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:0!important;
+    padding:8px 0!important;
+  }
+  .stub-route>div{
+    grid-template-columns:38px 1fr!important;
+    gap:5px!important;
+    padding:5px 7px!important;
+  }
+  .stub-route>div+div{border-top:0!important;border-left:1px solid #e6ece8!important}
+  .stub-route small{font-size:.44rem!important}
+  .stub-route strong{font-size:.66rem!important;line-height:1.35!important}
+  .stub-status-row{
+    grid-column:1/-1!important;
+    padding:7px 0 4px!important;
+    gap:4px!important;
+  }
+  .stub-status-row small{font-size:.36rem!important;margin-bottom:4px!important}
+  .stub-status-row strong{font-size:.58rem!important}
+  .stub-barcode{grid-column:1/-1!important;height:28px!important;margin-top:3px!important}
+
+  /* 2) AWARDS — one concise impact card */
+  .awards-impact-combined-v60{
+    margin-top:18px!important;
+    padding:14px 15px!important;
+    grid-template-columns:40px minmax(0,1fr)!important;
+    gap:11px!important;
+    border-radius:17px!important;
+  }
+  .awards-impact-icon-v60{width:40px;height:40px;font-size:.9rem}
+  .awards-impact-spark-v60{display:none!important}
+  .awards-impact-combined-v60 strong{font-size:.9rem!important}
+  .awards-impact-combined-v60 p{font-size:.71rem!important;line-height:1.55!important}
+
+  /* 3) CTA — shorter, single-line copy */
+  .final-cta{padding-bottom:36px!important}
+  .cta-box{
+    padding:18px 14px!important;
+    gap:12px!important;
+    border-radius:22px!important;
+  }
+  .cta-box h2{
+    margin-bottom:6px!important;
+    font-size:clamp(1.05rem,5vw,1.3rem)!important;
+    line-height:1.15!important;
+    white-space:nowrap!important;
+  }
+  .cta-box p{
+    max-width:none!important;
+    font-size:clamp(.64rem,2.9vw,.74rem)!important;
+    line-height:1.45!important;
+    white-space:nowrap!important;
+  }
+  .cta-box .cta{
+    min-height:44px!important;
+    padding:9px 14px!important;
+    margin-top:0!important;
+    font-size:.86rem!important;
+    border-radius:14px!important;
+  }
+
+  /* Footer logo truly centered */
+  footer{padding:22px 0!important}
+  .footer-inner{
+    width:100%!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    text-align:center!important;
+    gap:14px!important;
+  }
+  footer .brand{
+    width:100%!important;
+    display:flex!important;
+    justify-content:center!important;
+    align-items:center!important;
+    margin:0 auto!important;
+  }
+  footer .brand-name{color:#eef7f1!important}
+  .footer-inner>div:last-child{width:100%!important;text-align:center!important}
+  .footer-note,.source-note{margin-left:auto!important;margin-right:auto!important;text-align:center!important}
+}
+
+@media(max-width:360px){
+  .cta-box h2{font-size:.98rem!important}
+  .cta-box p{font-size:.61rem!important}
+  .full-ticket-message h1{font-size:2.05rem!important}
 }
 </style>
