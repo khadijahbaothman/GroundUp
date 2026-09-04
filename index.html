@@ -6432,6 +6432,48 @@ nav.nav-scrolled{
 }
 </style>
 
+
+<style id="desktop-awards-faq-v72">
+/* ===== V72 DESKTOP / STANDARD VIEW ===== */
+@media (min-width: 981px){
+  /* FAQ: give the new three-person image enough horizontal room. */
+  #faq .faq-main-v38{
+    grid-template-columns:minmax(0,.96fr) minmax(520px,1.04fr) !important;
+    gap:44px !important;
+    align-items:stretch !important;
+  }
+  #faq .faq-image-v38{
+    width:100% !important;
+    height:100% !important;
+    display:flex !important;
+    align-self:stretch !important;
+  }
+  #faq .faq-photo-shell-v38{
+    width:100% !important;
+    max-width:none !important;
+    height:100% !important;
+    min-height:560px !important;
+    aspect-ratio:auto !important;
+    margin:0 !important;
+    border-radius:30px !important;
+  }
+  #faq .faq-photo-shell-v38 img,
+  #faq .faq-photo-new{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:center center !important;
+  }
+
+  /* Awards: keep the merged final message compact and clearly one card. */
+  #awards .awards-impact-combined-v60{
+    max-width:760px !important;
+    margin-top:24px !important;
+    padding:18px 24px !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <nav>
@@ -8190,74 +8232,80 @@ section .section-head p{max-width:820px !important;margin-top:14px !important;}
 }
 </style>
 
-<script id="awards-countup-on-view-v70">
+<script id="awards-countup-on-view-v71">
 (function(){
-  const section=document.querySelector('#awards');
-  if(!section) return;
+  const section = document.querySelector('#awards');
+  if (!section) return;
 
-  // Disable any earlier count-up state and keep the values at zero until the
-  // awards section actually enters the user's viewport.
-  const prizes=[
-    [section.querySelector('.awards-total-hero-v51 strong'),50000],
-    [section.querySelector('.award-place-v50.first span'),20000],
-    [section.querySelector('.award-place-v50.second span'),15000],
-    [section.querySelector('.award-place-v50.third span'),10000]
-  ].filter(([el])=>el);
+  const prizes = [
+    [section.querySelector('.awards-total-hero-v51 strong'), 50000],
+    [section.querySelector('.award-place-v50.first span'), 20000],
+    [section.querySelector('.award-place-v50.second span'), 15000],
+    [section.querySelector('.award-place-v50.third span'), 10000]
+  ].filter(([el]) => el);
 
-  const fmt=n=>'SAR '+Math.round(n).toLocaleString('en-US');
-  prizes.forEach(([el,target])=>{
-    el.dataset.prizeTarget=String(target);
-    el.textContent=fmt(0);
+  const formatSAR = value => 'SAR ' + Math.round(value).toLocaleString('en-US');
+  const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let started = false;
+
+  // Keep numbers at zero until the awards section actually comes into view.
+  prizes.forEach(([el, target]) => {
+    el.dataset.prizeTarget = String(target);
+    el.textContent = formatSAR(0);
   });
 
-  const reduced=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let started=false;
-
-  function animate(el,target,delay){
-    if(reduced){ el.textContent=fmt(target); return; }
-    setTimeout(()=>{
-      const duration=1100;
-      const t0=performance.now();
-      function frame(now){
-        const p=Math.min(1,(now-t0)/duration);
-        const eased=1-Math.pow(1-p,3);
-        el.textContent=fmt(target*eased);
-        if(p<1) requestAnimationFrame(frame);
-        else el.textContent=fmt(target);
+  function animateNumber(el, target, delay){
+    if (reducedMotion){
+      el.textContent = formatSAR(target);
+      return;
+    }
+    window.setTimeout(() => {
+      const duration = 1250;
+      const startTime = performance.now();
+      function tick(now){
+        const raw = Math.min(1, (now - startTime) / duration);
+        const eased = 1 - Math.pow(1 - raw, 3);
+        el.textContent = formatSAR(target * eased);
+        if (raw < 1) requestAnimationFrame(tick);
+        else el.textContent = formatSAR(target);
       }
-      requestAnimationFrame(frame);
-    },delay);
+      requestAnimationFrame(tick);
+    }, delay);
   }
 
-  function start(){
-    if(started) return;
-    started=true;
-    prizes.forEach(([el,target],i)=>animate(el,target,i*90));
+  function launchAwards(){
+    if (started) return;
+    started = true;
+    section.classList.add('awards-in-view-v51');
+    prizes.forEach(([el, target], index) => animateNumber(el, target, index * 110));
   }
 
-  if(!('IntersectionObserver' in window)){
-    // Graceful fallback: only run after the first scroll/touch interaction.
-    const once=()=>{ start(); window.removeEventListener('scroll',once); window.removeEventListener('touchstart',once); };
-    window.addEventListener('scroll',once,{passive:true,once:true});
-    window.addEventListener('touchstart',once,{passive:true,once:true});
+  if (!('IntersectionObserver' in window)){
+    const fallback = () => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.9 && rect.bottom > 0){
+        launchAwards();
+        window.removeEventListener('scroll', fallback);
+      }
+    };
+    window.addEventListener('scroll', fallback, {passive:true});
+    fallback();
     return;
   }
 
-  const io=new IntersectionObserver(entries=>{
-    for(const entry of entries){
-      // Start only when the awards block is genuinely on screen, not merely
-      // preloaded near the viewport.
-      if(entry.isIntersecting && entry.intersectionRatio>=0.18){
-        start();
-        io.disconnect();
-        break;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.14){
+        launchAwards();
+        observer.disconnect();
       }
-    }
-  },{
-    threshold:[0,.18,.35],
-    rootMargin:'0px 0px -18% 0px'
+    });
+  }, {
+    threshold:[0, .14, .3],
+    rootMargin:'0px 0px -10% 0px'
   });
-  io.observe(section);
+
+  observer.observe(section);
 })();
 </script>
 </body>
